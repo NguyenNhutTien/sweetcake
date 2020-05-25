@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="raty/jquery.raty.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.fn.raty.defaults.path = 'raty/img';
+            $('.raty').raty({
+                score: function () {
+                    return $(this).attr('data-score');
+                },
+                readOnly: true,
+            });
+        });
+    </script>
+    <style>
+        .raty img {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    </style>
+
+    <title>Sweet cake</title>
+</head>
+
+<body>
+
+    <a href="#" id="back_to_top" onclick="topFunction()">
+        <img src="images/top.png">
+    </a>
+
+    <!-- menu -->
+    <div id="overlay"></div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a href="#" onclick="openLoginModal()">Đăng nhập</a>
+        <a href="#">
+            <i class="fas fa-search" onclick="document.getElementById('search-2').style.display='block'"></i>
+            <input type="text" name="search" id="search-2" class="search-2" placeholder="Tìm kiếm..">
+        </a>
+    </div>
+
+    <header>
+        <a href="index.html"><img src="images/logo-1.png" alt="sweet-cake-logo" height="150px" width="250px" style="display: block; z-index: 1031; position: fixed;
+                left: 50%; top:0px; margin-left: -125px;"></a>
+        <img src="images/luonSong.png" width="1920px" height="8%" style="display: block; z-index: 1030; position: fixed;
+                 top: 80px; " alt="">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" onclick="openNav()" type="button" data-toggle="collapse" data-target="">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav pull-sm-left">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Trang chủ<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                        </li>
+
+                    </ul>
+                    <!-- <ul class="nav navbar-nav navbar-logo mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="images/logo-1.png" alt="sweet-cake-logo"
+                                    height="150px" width="250px" style="z-index: 1; position: absolute"></a>
+                        </li>
+                    </ul> -->
+                    <ul class="nav navbar-nav mx-auto pull-sm-right" style="margin-right: 0 !important">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="lienhe.html">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="openLoginModal()" href="#">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow-lg p-1 bg-white rounded"
+                                        aria-labelledby="navbarDropdown">
+                                        <input type="text" name="search" class="search" placeholder="Tìm kiếm..">
+                                    </div>
+                                </li>
+                                <!-- dropdown cart -->
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#" role="button" id="dropdownCart" data-toggle="dropdown">
+                                        <i class="fas fa-shopping-cart"><span class="badge badge-light">2</span></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-cart px-3 shadow-lg p-1 bg-white rounded"
+                                        aria-labelledby="dropdownCart">
+                                        <div class="row dropdown-cart-header d-flex">
+                                            <div class="p-2">
+                                                <i class="fa fa-shopping-cart cart-icon"></i>
+                                                <span class="badge-cart drc_total_items">2</span>
+                                            </div>
+                                            <div class="ml-auto p-2">
+                                                <span class="lighter-text drc_total_amount">Tổng : </span>
+                                                <span class="main-color-text">45.000 VNĐ</span>
+                                            </div>
+                                        </div>
+                                        <!-- info items -->
+                                        <div class="row dropdown-cart-items mx-1">
+                                            <ul class="w-100">
+                                                <li class="row">
+                                                    <div class="col-2 mr-3">
+                                                        <img src="images/banh-kem-tiramisu-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="item-name">Bông kem tiramisu 1</span>
+                                                        <div>
+                                                            <span class="item-price">45.000đ</span>
+                                                            <span class="item-quantity">Số lượng : 1</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-2 mr-3">
+                                                        <img src="images/banh-bong-lan-trung-muoi.jpg" alt="">
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="item-name">Bông lang trứng muối</span>
+                                                        <div>
+                                                            <span class="item-price">45.000đ</span>
+                                                            <span class="item-quantity">Số lượng : 1</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <a class="btn btn-primary mt-3 visit-cart" href="gio-hang.html"
+                                            role="button">Ghé giỏ
+                                            hàng</a>
+                                        <a class="btn btn-primary mt-3 mb-2 checkout-cart" href="thanhtoan.html" role="button">Thanh
+                                            toán</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- end menu  -->
+
+
+    <div class="mt-5" style="margin-top: 7rem !important"></div>
+    <!-- wrapper -->
+    <div id="wrapper">
+        <div class="container-fluid cart-wrapper">
+            <div class="box-center">
+                <div class="tittle-box-center">
+                    <h3 class="mb-3 bg-danger text-white"
+                        style="width: 60%; filter: drop-shadow(2px 2px 5px rgb(10, 10, 10))">
+                        <i class="fas fa-shopping-cart mr-2"></i>Thông tin giỏ hàng
+                        (có 1 sản phẩm)</h3>
+                </div>
+                <div class="alert alert-success" style="margin-top: 30px;">
+                    <strong style="color: #3c763d">Cập nhật giỏ hàng thành công!</strong>
+                </div>
+                <div class="row padding">
+                    <div class="col-md-8">
+                        <form action="" method="post" class="form-horizontal">
+                            <table id="cart" class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25%">Tên sản phẩm</th>
+                                        <th style="width: 20%">Giá</th>
+                                        <th style="width: 10%">Số lượng</th>
+                                        <th style="width: 15%">Ngày giao</th>
+                                        <th style="width: 20%" class="text-center">Thành tiền</th>
+                                        <th style="width: 10%">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-th="Product">
+                                            <div class="row">
+                                                <div class="col-4 hidden-xs image-thumnail">
+                                                    <img src="images/banh-kem-tiramisu-1.jpg" alt=""
+                                                        class="img-responsive">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p>Bông kem tiramisu 1</p>     
+                                                    <p style="font-size: 16px"><i>(Khắc chữ : Mừng sinh nhật Bé Heo 22-2)</i></p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-th="Price">45.000 VNĐ </td>
+                                        <td data-th="Quantity"><input id="qty" type="number" name="qty"
+                                                class="form-control text-center mx-auto" min="1" value="1"></td>
+                                        <td data-th="Delivery-date" class="text-center">
+                                            11/10/2019 14h->16h00
+                                        </td>
+                                        <td data-th="Subtotal" class="text-center">
+                                            45.000 VNĐ
+                                        </td>
+                                        <td class="actions" data-th="">
+                                            <a class="btn btn-info btn-sm updateCart">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href=""> <i class="fas fa-trash"></i>
+                                            </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td data-th="Product">
+                                            <div class="row">
+                                                <div class="col-4 hidden-xs image-thumnail">
+                                                    <img src="images/banh-bong-lan-trung-muoi.jpg" alt=""
+                                                        class="img-responsive">
+                                                </div>
+                                                <div class="col-8">
+                                                    Bông lan trứng muối
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-th="Price">45.000 VNĐ </td>
+                                        <td data-th="Quantity"><input id="qty" type="number" name="qty"
+                                                class="form-control text-center mx-auto" min="1" value="1"></td>
+                                        <td data-th="Delivery-date" class="text-center">
+                                            11/10/2019 14h->16h00
+                                        </td>
+                                        <td data-th="Subtotal" class="text-center">
+                                            45.000 VNĐ
+                                        </td>
+                                        <td class="actions" data-th="">
+                                            <a class="btn btn-info btn-sm updateCart">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href=""> <i class="fas fa-trash"></i>
+                                            </a></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr style="border: none">
+                                        <td colspan="5"><a href="" class="btn btn-warning"><i
+                                                    class="fa fa-angle-left mx-2"></i>
+                                               <b>Tiếp tục mua hàng</b> </a>
+                                        </td>
+                                        <!-- <td colspan="4" class="hidden-xs"></td> -->
+                                        <td>
+                                            <!-- <a class="btn btn-success btn-block checkout">Thanh toán <i
+                                            class="fa fa-angle-right"></i> -->
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                    </div>
+                    <!-- Thông tin Don hang -->
+                    <div class="col-md-4" id="order-info">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">
+                                <h4>Thông tin đơn hàng</h4>
+                            </li>
+                            <li class="list-group-item"><span class="badge-order">90.000 VNĐ </span>
+                                Số tiền</li>
+                            <li class="list-group-item"><span class="badge-order"> 15.000 VNĐ </span> Phí ship
+                            </li>
+                            <li class="list-group-item list-group-item-warning" style="color: red"><span
+                                    class="badge-order">
+                                    105.000 VNĐ </span>
+                                Tổng tiền thanh toán</li>
+                        </ul>
+                        <a class="btn btn-success btn-block my-2 mx-auto" style="width: 55%; color: black;" href="thanhtoan.html"><b>Xác nhận giỏ hàng</b> <i
+                                class="fa fa-angle-right mx-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end wrapper -->
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4 mt-2">
+                    <img src="images/sweet-cake-logo-.jpg" width="100" height="70" alt="">
+                    <hr class="light">
+                    <p>0123 456 789</p>
+                    <p>sweetcake@gmail.com</p>
+                    <p>QL 13, P.Hiệp Bình Chánh, Q.Thủ Đức, TP.HCM</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Giờ làm việc</h5>
+                    <hr class="light">
+                    <p>Thứ hai - Thứ sáu : 8h - 21h</p>
+                    <p>Thứ bảy - Chủ nhật : 8h - 22h</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Dịch vụ</h5>
+                    <hr class="light">
+                    <p>Đặt bánh sinh nhật</p>
+                    <p>Giao hàng tận nơi </p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; Sweet cake bakery</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer  -->
+
+    <!-- Login -->
+    <div id="modal-login" class="modal-login">
+        <div id="login-content" class="container-fluid login animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Đăng nhập</h1>
+                <span onclick="closeModalLogin()" class="close-login" title="Đóng login">&times;</span>
+                <div class="col-md-12 col-lg-6 login-with-social">
+                    <a href="#" class="btn btn-primary btn-md fb mt-5" role="button" aria-pressed="true"><i
+                            class="fab fa-facebook-f"></i>
+                        Đăng nhập với Facebook
+                    </a>
+                    <a href="#" class="btn btn-primary btn-md twitter" role="button" aria-pressed="true"><i
+                            class="fab fa-twitter"></i>
+                        Đăng nhập với Twitter
+                    </a>
+                    <a href="#" class="btn btn-primary btn-md google" role="button" aria-pressed="true"><i
+                            class="fab fa-google"></i>
+                        Đăng nhập với Google+
+                    </a>
+                    <div class="row new-account mt-3">
+                        <span>Chưa có tài khoản?</span> <a onclick="openSignupModal()">Đăng ký ngay</a>
+                    </div>
+                    <div class="row forgot-password">
+                        <a onclick="openFogotPasswordModal()">Quên mật khẩu?</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="form-item d-flex flex-row">
+                                <i class="fa fa-user fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email"
+                                    required>
+                            </div>
+                            <p id="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật khẩu</label>
+                            <div class="form-item d-flex flex-row">
+                                <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                <input type="password" class="form-control p-2" id="password"
+                                    placeholder="Nhập mật khẩu" required>
+                            </div>
+                            <p id="passwordError"></p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label for="rememberMe" class="form-check-label">Nhớ mật khẩu</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block my-3">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end login -->
+
+    <!-- Forgot Password -->
+    <div id="modal-forgotPassword" class="modal-forgotPassword">
+        <div id="forgotPassword-content" class="container-fluid forgotPassword animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Quên mật khẩu</h1>
+                <span onclick="closeFogotPasswordModal()" class="close-forgotPassword"
+                    title="Đóng forgot password">&times;</span>
+                <form action="" style="width: 100%">
+                    <div class="form-group">
+                        <label for="email">Nhập Email đăng nhập của bạn, chúng tôi sẽ gửi mật khẩu mới cho bạn:</label>
+                        <div class="form-item d-flex flex-row">
+                            <i class="fa fa-envelope-square fa-lg fa-fw p-2" aria-hidden="true"></i>
+                            <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email">
+                        </div>
+                        <p id="emailError"></p>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block my-3 d-block mx-auto">Lấy lại mật
+                        khẩu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Forgot Password -->
+
+    <!-- SignUp -->
+    <div id="modal-signup" class="modal-signup">
+        <div id="signup-content" class="container-fluid signup animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Đăng ký</h1>
+                <span onclick="closeModalSignup()" class="close-signup" title="Đóng sigup">&times;</span>
+                <form action="" style="width: 100%">
+                    <div class="form-row row justify-content-between">
+                        <div class="col-lg-5 col-md-10">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-envelope-square fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email">
+                                </div>
+                                <p id="emailError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật khẩu</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="password" class="form-control p-2" id="password"
+                                        placeholder="Nhập mật khẩu">
+                                </div>
+                                <p id="passwordError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="repassword">Nhập lại mật khẩu</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="password" class="form-control p-2" id="repassword"
+                                        placeholder="Nhập lại mật khẩu">
+                                </div>
+                                <p id="repasswordError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-user fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="name" placeholder="Nhập họ và tên">
+                                </div>
+                                <p id="nameError"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-10">
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-phone fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="phone"
+                                        placeholder="Nhập số điện thoại">
+                                </div>
+                                <p id="phoneError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Địa chỉ</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-map-marker fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="address" placeholder="Nhập địa chỉ">
+                                </div>
+                                <p id="addressError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Thành phố/Tỉnh</label>
+                                <select class="custom-select" name="city">
+                                    <option selected>-----Chọn Thành phố/Tỉnh-----</option>
+                                    <option value="1">TP.Hồ Chí Minh</option>
+                                    <option value="2">Hà Nội</option>
+                                    <option value="3">Bình Dương</option>
+                                </select>
+                                <p id="cityError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="district">Quận/Huyện</label>
+                                <select class="custom-select" name="district">
+                                    <option selected>-----Chọn Quận/Huyện-----</option>
+                                    <option value="1">Quận 1</option>
+                                    <option value="2">Quận 2</option>
+                                    <option value="3">Quận Bình Thạnh</option>
+                                </select>
+                                <p id="districtError"></p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success d-block mx-auto btn-block my-3">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end SignUp -->
+
+    <script src="js/show-on-scroll.js"></script>
+    <script src="js/custom.js"></script>F
+</body>
+
+</html>

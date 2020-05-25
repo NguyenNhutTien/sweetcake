@@ -1,0 +1,921 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Pro&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0 !important;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
+    color: #222;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#back_to_top{
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;  
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;  
+}
+#back_to_top:hover{
+    opacity: 0.8;
+}
+/* ---------------------Menu---------------- */
+
+.navbar {
+    background-color: white;
+    /* position: relative; */
+    height: 80px;
+}
+
+.navbar .navbar-collapse .nav-item {
+    padding: 0 10px;
+}
+
+.navbar .navbar-collapse {}
+
+.sidebar {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1033;
+    /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid grey;
+}
+
+.sidebar a.closebtn {
+    border-bottom: none;
+}
+
+/* When you mouse over the navigation links, change their color */
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#wrapper {
+    transition: margin-left .5s;
+    /* If you want a transition effect */
+    /* padding: 20px; */
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* overflow: auto; */
+    /* full screen */
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 1032;
+    /* animate the transition */
+    transition: all 0.5s ease-in-out;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+/* search */
+
+.dropdown-menu {
+    width: 400px !important;
+    padding: 0px 0px;
+    transition: 1.5s ease-in-out;
+}
+
+.dropdown .dropdown-menu {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.dropdown.show .dropdown-menu {
+    /* For Bootstrap 4, use .dropdown.show instead of .dropdown.open */
+    max-height: 300px;
+    opacity: 1;
+}
+
+input[type=text].search {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+
+input[type=text].search:focus {
+    width: 100%;
+}
+
+input[type=text].search-2 {
+    /* position: relative; */
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    display: none;
+    /* z-index: 300;  */
+}
+
+/* When the input field gets focus, change its width to 100% */
+
+input[type=text].search-2:focus {
+    width: 200px;
+}
+
+.navbar-nav .fa-shopping-cart {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    border-radius: 50% !important;
+    background: #ffc107 ;
+}
+
+/*----------------- end menu --------------------*/
+
+#wrapper {
+    margin-top: 4rem !important
+}
+/* slide  */
+
+.container-fluid.full-width {
+    max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-inner {}
+
+.carousel-inner img {
+    widows: 100% !important;
+    height: 600px !important;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 20%;
+    z-index: 1 !important;
+}
+
+.carousel-caption h2 {
+    font-size: 400%;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 15px #000;
+}
+
+.carousel-caption h3 {
+    font-size: 200%;
+    text-shadow: 2px 2px 10px #000;
+}
+
+.carousel-caption .btn-primary {
+    border-radius: 4px;
+    background-color: rgb(82, 64, 120);
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.carousel-caption .btn-primary span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.carousel-caption .btn-primary span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.carousel-caption .btn-primary:hover span {
+    padding-right: 25px;
+}
+
+.carousel-caption .btn-primary:hover {
+    background-color: rgb(60, 40, 100);
+    border: 1px solid white;
+}
+
+.carousel-caption .btn-primary:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.carousel-item img {
+    animation: phongto 10s none;
+    /* animation-iteration-count : infinite; */
+}
+
+.carousel-item .carousel-caption {
+    animation: chuchay 2s forwards;
+    /* animation-iteration-count : infinite; */
+    animation-delay: 0.5s;
+    /*Text chạy chậm hơn hình 1s*/
+    opacity: 0;
+}
+
+@-webkit-keyframes phongto {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+@-webkit-keyframes chuchay {
+    from {
+        opacity: 0;
+        left: 5%;
+        right: 25%;
+        transform: rotate(-180deg);
+    }
+    /* di chuyen text tru sang sang phai */
+    to {
+        opacity: 1;
+        left: 15%;
+        right: 15%;
+        transform: rotate(360deg);
+    }
+}
+
+/* .Media query  responsive caption in slide */
+
+@media (max-width: 992px) {
+    .carousel-caption {
+        top: 10%;
+    }
+    .carousel-caption h2 {
+        font-size: 250%;
+    }
+    .carousel-caption h3 {
+        font-size: 160%;
+    }
+    .carousel-caption .btn {
+        font-size: 120%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        top: 5%;
+    }
+    .carousel-caption h2 {
+        font-size: 220%;
+    }
+    .carousel-caption h3 {
+        font-size: 140%;
+        padding-bottom: 0.2rem;
+    }
+    .carousel-caption .btn {
+        font-size: 95%;
+        padding: 8px 14px
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption {
+        top: 1%;
+    }
+    .carousel-caption h2 {
+        font-size: 100%;
+    }
+    .carousel-caption h3 {
+        font-size: 80%;
+        padding-bottom: 0.3rem;
+    }
+    .carousel-caption .btn {
+        font-size: 70%;
+        padding: 4px 8px
+    }
+}
+
+/* product type */
+
+.product-type hr {
+    border-top: 2px solid rgb(62, 44, 100, 0.6);
+    width: 95%;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-type img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50% !important;
+    border: 5px outset red;
+    filter: drop-shadow(8px 8px 10px rgb(233, 125, 93));
+}
+
+.product-type img.inline-photo {
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0, 1, .3, 1), opacicty .3s .25s ease-out;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+.product-type img.inline-photo.is-visible {
+    opacity: 1;
+    transform: rotateZ(-2deg);
+}
+
+.product-type h3.product-type-title {
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0, 1, .3, 1), opacicty .3s .25s ease-out;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+.product-type h3.product-type-title.is-visible {
+    opacity: 1;
+    transform: rotateZ(0deg);
+}
+
+.product-type img:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+/* list product */
+
+.list-product-title {
+    width: 40%;
+    text-transform: uppercase;
+    /* background-color: lightpink; */
+    border-radius: 0 15px 15px 0 !important;
+    padding-left: 5px;
+    filter: drop-shadow(2px 2px 5px rgb(10, 10, 10));
+}
+
+.list-product-subtitle {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* product card */
+
+.card-product {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-product .card-body {
+    /* padding : 0.5rem; */
+    font-size: 20px;
+}
+
+.card-product .card-image a.mask {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: 280px;
+    /* Sử dụng mặt nạ là chính bức ảnh .png để che đi những phần không muốn hiển thị: */
+    -webkit-mask: url('../images/banh-bong-lan-trung-muoi.jpg') center;
+    mask: url('#mask-firefox');
+}
+
+.card-product .card-image a.mask:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    top: -110%;
+    left: -210%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    background: linear-gradient( to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%);
+}
+
+.card-product .card-image a.mask:hover:after {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 1s, 1s, .15s;
+    transition-timing-function: ease;
+}
+
+.card-product .card-image a.mask img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform .2s;
+}
+
+.card-product .card-image a.mask img:hover {
+    transform: scale(1.5);
+}
+
+.card-product .product-price {
+    position: relative;
+}
+
+.card-product .old-price {
+    text-decoration: line-through;
+    /* position: absolute; */
+    left: 0;
+    margin-right: 25px;
+}
+
+.card-product .new-price {
+    color: #f90;
+    right: 0;
+    /* position: absolute; */
+    /* right: 0.2rem; */
+    /* margin-left: 5px; */
+}
+
+.card-product .original-price {
+    color: #f90;
+    left: 0;
+}
+
+.card-product .sale-sticky {
+    color: white;
+    background-color: #f90;
+    display: block;
+    text-align: center;
+    width: 120px;
+    position: absolute;
+    top: 8px;
+    right: -39px;
+    transform: rotate(45deg);
+}
+
+/* contact */
+
+.social a {
+    font-size: 3em;
+    /* 1em = 16px */
+    padding: 3rem;
+    /* 1rem = 1 "font-size" */
+}
+
+.social .fa-facebook {
+    color: #3b5998;
+}
+
+.social .fa-twitter {
+    color: #00aced;
+}
+
+.social .fa-google-plus-g {
+    color: #dd4b39;
+}
+
+.social .fa-instagram {
+    color: #517fa4;
+}
+
+.social .fa-youtube {
+    color: #bb0000;
+}
+
+/* footer */
+
+footer {
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+}
+
+hr.light {
+    border: 1px solid #d5d5d5;
+    width: 75%;
+    margin-left: 60px;
+}
+
+.light-100 {
+    border: 1px solid #d5d5d5;
+    width: 100%;
+}
+
+/* Login */
+
+.login .row-container, .signup .row-container, .forgotPassword .row-container {
+    position: relative;
+    width: 70%;
+    border: 1px solid #fff;
+    border-radius: 20px !important;
+    /* vh = Viewport's height -> 10% khung nhìn mình nhìn thấy */
+    margin-top: 10vh;
+    padding: 30px;
+    -webkit-box-shadow: 3px 3px 35px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 3px 35px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 3px 35px -2px rgba(0, 0, 0, 0.75);
+}
+
+.login label, .login .form-check-label, .login h1, .login .forgot-password, .login span, .signup label, .signup h1, .signup span, .forgotPassword span, .forgotPassword h1, .forgotPassword label {
+    text-shadow: 2px 2px 10px #000;
+    color: white;
+}
+
+.login .form-group input {
+    width: 80%;
+}
+
+.login .form-group input:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.login .form-group {
+    /* position: relative; */
+}
+
+.login .form-group i, .signup .form-group i, .forgotPassword .form-group i {
+    /* position: relative; */
+    /* left : 0; */
+    /* top : 22px; */
+    padding: 13px 34px 12px 12px !important;
+    color: #aaa;
+    transition: 2s;
+    background-color: white;
+    /* color: #fff;     */
+    border-radius: 4px 0 0 4px !important;
+    /* margin-top: 5px;  */
+}
+
+.login .form-group input:focus+.login .form-group i {
+    color: #fff !important;
+    background-color: dodgerblue !important;
+}
+
+#emailError, #passwordError, #repasswordError, #nameError, #phoneError {
+    color: red;
+    background-color: blanchedalmond;
+    padding-left: 10px;
+    border-radius: 4px !important;
+    margin-top: 1px;
+}
+
+.login-with-social a.btn {
+    width: 75%;
+    margin-top: 10px;
+    border: none;
+}
+
+.login-with-social a.btn:hover {
+    opacity: 0.9;
+}
+
+.login-with-social a.fb {
+    background-color: #3B5998;
+    color: white;
+}
+
+.login-with-social a.twitter {
+    background-color: #55ACEE;
+    color: white;
+}
+
+.login-with-social a.google {
+    background-color: #dd4b39;
+    color: white;
+}
+
+.login .new-account a, .login .forgot-password a {
+    text-decoration: underline;
+    color: rgb(228, 114, 21);
+    cursor: pointer;
+    text-shadow: 2px 2px 10px #000;
+}
+
+.login .new-account a:hover, .login .forgot-password a:hover {
+    opacity: 0.8;
+    color: blue;
+    text-decoration: underline;
+}
+
+.close-login, .close-signup, .close-forgotPassword {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close-login:hover, .close-signup:hover, .close-forgotPassword:hover, .close-login:focus, .close-signup:focus, .close-forgotPassword:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.modal-login, .modal-signup, .modal-forgotPassword {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1034 !important;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    /* padding-top: 60px; */
+}
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+/* --------------------Signup ---------------- */
+
+.signup .row-container {
+    margin-top: 3vh !important;
+    margin-bottom: 3vh !important;
+    padding-top: 5px !important;
+    /* height: 95vh !important; */
+}
+
+.signup button {
+    width: 40%;
+}
+
+/*--------------------Forgot password------------------*/
+
+.forgotPassword .row-container {
+    width: 50%;
+}
+
+.forgotPassword button {
+    width: 40%;
+}
+
+/*------------------Dropdown Cart ---------------------*/
+
+.dropdown-cart {
+    background: white;
+    width: 250px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, .8);
+    min-height: 450px;    
+}
+
+.dropdown-cart .dropdown-cart-header i {
+    position: relative !important;
+}
+
+.dropdown-cart .dropdown-cart-header span.badge-cart {
+    position: absolute !important;
+    background-color: #ffc107;
+    border-radius: 10px !important;
+    color: black;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    top: 8px;
+    left: 33px;
+}
+
+.dropdown-cart .lighter-text {
+    color: #ABB0BE;
+}
+
+.dropdown-cart .main-color-text {
+    color: #6394F8;
+}
+
+.dropdown-cart .dropdown-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+}
+
+/* .dropdown-cart .dropdown-cart-header .dropdown-cart-total {
+  float: right;
+} */
+
+.dropdown-cart .dropdown-cart-items {
+    padding-top: 20px;
+}
+
+.dropdown-cart .dropdown-cart-items li {
+    margin-bottom: 18px;
+}
+
+.dropdown-cart .dropdown-cart-items img {
+    margin-right: 12px;
+    width: 70px;
+    height: 70px;
+}
+
+.dropdown-cart .dropdown-cart-items .item-name {
+    display: block;
+    padding-top: 10px;
+}
+
+.dropdown-cart .dropdown-cart-items .item-price {
+    color: #6394F8;
+    margin-right: 8px;
+}
+
+.dropdown-cart .dropdown-cart-items .item-quantity {
+    color: #ABB0BE;
+}
+
+.dropdown-cart:after {
+    bottom: 100%;
+    left: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+.dropdown-cart .btn {
+    text-align: center !important;
+    border-radius: 3px !important;
+    display: block;
+}
+
+.dropdown-cart .checkout-cart {
+    background: #0099aa;
+    cursor: pointer;
+}
+
+.dropdown-cart .visit-cart {
+    background: #d36442;
+    cursor: pointer;
+}
+
+.dropdown-cart .btn:hover {
+    background: #729ef9;
+}
+
+.dropdown-cart .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dropdown-cart .clearfix img {
+    width: 50px;
+    height: 50px;
+}
+
+/* ----------------------End dropdown cart------------------ */
+
+

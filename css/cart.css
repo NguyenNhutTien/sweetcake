@@ -1,0 +1,122 @@
+/* .table&amp;amp;gt;tbody&amp;amp;gt;tr&amp;amp;gt;td, .table&amp;amp;gt;tfoot&amp;amp;gt;tr&amp;amp;gt;td {  
+vertical-align: middle;
+} */
+
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+    .actions .btn-info {
+        float: left;
+    }
+    .actions .btn-danger {
+        float: right;
+    }
+    table#cart thead {
+        display: none;
+    }
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+    table#cart tfoot td {
+        display: block;
+    }
+    table#cart tfoot td .btn {
+        display: block;
+    }
+}
+
+.table {
+    width: 100%;
+}
+
+table#cart {
+    /* font-size: 12px !important; */
+}
+
+.table tr {
+    border: 2px solid #dee2e6;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+.table thead tr th {
+    color: #0c5460;
+    background-color:  #bee5eb;
+    vertical-align: middle;
+}
+
+.table tbody tr td p{
+    margin-bottom: 0;
+}
+.clear {
+    clear: both;
+}
+
+input#qty {
+    width: 70px;
+    height: 30px;
+}
+
+table#cart th {
+    text-align: center;
+}
+
+table#cart td {
+    text-align: center;
+    line-height: 40px;
+}
+
+#order-info {
+    width: 200px;
+}
+
+.cart-wrapper img {
+    width: 70px;
+    height: 70px;
+}
+
+.cart-wrapper .actions i {
+    color: white;
+}
+
+.list-group-item span.badge-order {
+    float: right !important;
+    background-color: #6394F8;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    /* font-size: 12px; */
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    min-width: 10px;
+    font-weight: 700px;
+    border-radius: 10px !important;
+}
+
+.image-thumnail {
+    text-align: left;
+    /* padding-top: 50%; */
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="font-awesome/css/all.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div style="margin:3em;">
+    <form class="form-inline" id="topicForm" action="" method="POST">
+      <input type="text" id="inputTopic" name="topic" class="form-control mb-2 mr-sm-2" placeholder="Topic of interest"
+        required autofocus />
+      <button type="button" id="btnFetch" class="btn btn-primary mb-2">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#btnFetch").click(function () {
+        // disable button
+        $(this).prop("disabled", true);
+        // add spinner to button
+        $(this).html(
+          `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+        );
+      });
+    });
+  </script>
+
+
+
+
+  <!-- jumbotron -->
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, world!</h1>
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+          attention to featured content or information.</p>
+      </div>
+      <hr class="my-4">
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- end jumbotron -->
+  <div class="container-fluid padding">
+    <div class="row padding">
+      <div class="col-md-12 col-lg-6">
+        <h2>If you build it....</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen
+          book.
+        </p>
+        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+          essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently
+          with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        <br>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://via.placeholder.com/450x450" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+  <hr class="my-2">
+  <button class="fun" data-toggle="collapse" data-target="#emoji">Click for fun</button>
+  <div id="emoji" class="collapse">
+    <div class="container-fluid padding">
+      <div class="row text-center">
+        <div class="col-sm-6 col-md-3">
+          <img src="https://media.giphy.com/media/4Zo41lhzKt6iZ8xff9/giphy.gif" alt="" class="gif" width="100px"
+            height="100px">
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <img src="https://media.giphy.com/media/51Uiuy5QBZNkoF3b2Z/giphy.gif" alt="" class="gif" width="100px"
+            height="100px">
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <img src="https://media.giphy.com/media/eeUJaTwsHh3tswkaYm/giphy.gif" alt="" class="gif" width="100px"
+            height="100px">
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <img src="https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif" alt="" class="gif" width="100px"
+            height="100px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Member of team -->
+  <div class="container-fluid padding">
+    <div class="row welcome text-center">
+      <div class="col-12">
+        <h1 class="display-4">
+          Meet our team members
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid padding">
+    <div class="row padding">
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="https://via.placeholder.com/250x250" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Lê Tuấn Khải</h4>
+            <p class="card-text">Lê Tuấn Khải là nhóm trưởng</p>
+            <a href="#" class="btn btn-outline-secondary">See profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="https://via.placeholder.com/250x250" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Trương Tố Xuân</h4>
+            <p class="card-text">Trương Tố Xuân là thành viên</p>
+            <a href="#" class="btn btn-outline-secondary">See profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="https://via.placeholder.com/250x250" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Nguyễn Nhựt Tiến</h4>
+            <p class="card-text">Nguyễn Nhựt Tiến là thành viên</p>
+            <a href="#" class="btn btn-outline-secondary">See profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end Member of team -->
+</body>
+
+</html>

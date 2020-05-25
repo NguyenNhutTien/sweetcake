@@ -1,0 +1,308 @@
+img {
+  vertical-align: middle;
+}
+
+#wrapper p {
+  margin-bottom: 0px;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+
+.container-image-gallery {
+  position: relative;
+}
+
+/* Hide the images by default */
+
+.mySlides {
+  display: none;
+}
+
+.container-image-gallery .mySlides img {
+  height: 413px;
+  width: 100%;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+
+.demo {
+  opacity: 0.6;
+}
+
+.active, .demo:hover {
+  opacity: 1;
+}
+
+/* --------------- Product detalt right ----------------------- */
+
+p.product-info {
+  border-bottom: 1px dashed #dbdbdb;
+  width: 70%;
+}
+
+p.product-info span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.choose-quantity {
+  width: 22%;
+}
+
+button.add-to-cart {
+  float: right;
+  margin-right: 35%;
+ 
+}
+button.add-to-cart:hover{
+  background-color:  #d19e04;
+}
+
+/*------------------ Tab control -------------------------- */
+
+/* .tabs-control{
+  width: 60% !important;
+} */
+.usual {
+  color: #111111;
+  width: 100%;
+}
+
+.usual li {
+  float: left;
+  list-style: none outside none;
+}
+
+.usual ul a {
+  background: none repeat scroll 0 0 #dbdbdb;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #333333;
+  display: block;
+  font-size: 20px;
+  margin: 0 4px 0 -1px;
+  padding: 17px 21px;
+  text-decoration: none !important;
+  text-transform: none;
+}
+
+.usual ul a:hover {
+  background-color: #4c66a4;
+  color: #ffffff;
+}
+
+.usual ul a.selected {
+  background: none repeat scroll 0 0 #4c66a4;
+  color: #ffffff;
+  cursor: default;
+}
+
+.usual div {
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #cccccc;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  clear: left;
+  padding: 10px 10px 8px;
+}
+
+.usual-content {
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #cccccc;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  clear: left;
+  margin-bottom: 15px;
+  overflow: hidden;
+  padding: 10px 10px 8px;
+}
+
+.usual div a {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* ---------------------- Comment product ------------------------ */
+.comment-form-container {
+  background: #F0F0F0;
+  border: #e0dfdf 1px solid;
+  padding: 5px;
+  border-radius: 2px;
+}
+.comment-product .input-row {
+  margin-bottom: 10px;
+}
+
+.comment-product .input-field {
+  width: 60%;
+  border-radius: 2px;
+  padding: 10px;
+  border: #e0dfdf 1px solid;
+}
+
+.comment-product .btn-submit {
+  padding: 10px 20px;
+  background: #333;
+  border: #1d1d1d 1px solid;
+  color: #f0f0f0;
+  font-size: 0.9em;
+  width: 140px;
+  border-radius: 2px;
+  cursor:pointer;  
+}
+
+.comment-product #output .outer-comment ul {
+  list-style-type: none;  
+  margin-left: 3em;
+}
+.comment-product #output .outer-comment ul li{
+  list-style-type: none;
+}
+.comment-product .comment-row {
+  border-bottom: #e0dfdf 1px solid;
+  margin-bottom: 2px;
+  padding: 5px;
+}
+
+
+.comment-product .outer-comment {
+  background: #F0F0F0;
+  padding: 5px;
+  border: #dedddd 1px solid;
+}
+
+.comment-product span.commet-row-label {
+  font-style: italic;
+}
+
+.comment-product span.posted-by {
+  color: #09F;
+}
+
+.comment-product .comment-info {
+  font-size: 0.8em;
+}
+.comment-product .comment-text {
+  margin: 5px 0px;
+}
+.comment-product .btn-reply {
+  font-size: 0.8em;
+  text-decoration: underline;
+  color: #888787;
+  cursor:pointer;
+}
+.comment-product #comment-message {
+  margin-left: 20px;
+  color: #189a18;
+  display: none;
+}
+#form_reply{
+  display: none;
+  margin-top: 5px;
+}
+
+label{
+margin-left: 20px;
+}
+#datepicker{
+width:180px; 
+margin: 0 20px 20px 20px;
+}
+#datepicker > span:hover{
+cursor: pointer;
+}
+
+.thumnail-image{
+  height: 100px !important;
+  overflow: hidden !important;
+}
+.thumnail-image img{
+  height: 100% !important;
+}
+
+/* zoom image */
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50% !important;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}

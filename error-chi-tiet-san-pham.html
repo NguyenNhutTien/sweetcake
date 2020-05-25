@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="raty/jquery.raty.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.fn.raty.defaults.path = 'raty/img';
+            $('.raty').raty({
+                score: function () {
+                    return $(this).attr('data-score');
+                },
+                readOnly: true,
+            });
+        });
+    </script>
+
+   
+    
+    <style>
+        .raty img {
+            width: 16px !important;
+            height: 16px !important;
+        }
+    </style>
+
+    <title>Chi tiết sản phẩm</title>
+</head>
+
+<body>
+
+    <a href="#" id="back_to_top" onclick="topFunction()">
+        <img src="images/top.png">
+    </a>
+
+    <!-- menu -->
+    <div id="overlay"></div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="lienhe.html">Liên hệ</a>
+        <a href="#" onclick="openLoginModal()">Đăng nhập</a>
+        <a href="#">
+            <i class="fas fa-search" onclick="document.getElementById('search-2').style.display='block'"></i>
+            <input type="text" name="search" id="search-2" class="search-2" placeholder="Tìm kiếm..">
+        </a>
+    </div>
+
+    <header>
+        <a href="index.html"><img src="images/logo-1.png" alt="sweet-cake-logo" height="150px" width="250px" style="display: block; z-index: 1031; position: fixed;
+                left: 50%; top:0px; margin-left: -125px;"></a>
+        <img src="images/luonSong.png" width="1920px" height="8%" style="display: block; z-index: 1030; position: fixed;
+                 top: 80px; " alt="">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" onclick="openNav()" type="button" data-toggle="collapse" data-target="">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav pull-sm-left">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Trang chủ<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                        </li>
+
+                    </ul>
+                    <!-- <ul class="nav navbar-nav navbar-logo mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="images/logo-1.png" alt="sweet-cake-logo"
+                                    height="150px" width="250px" style="z-index: 1; position: absolute"></a>
+                        </li>
+                    </ul> -->
+                    <ul class="nav navbar-nav mx-auto pull-sm-right" style="margin-right: 0 !important">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="lienhe.html">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="openLoginModal()" href="#">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow-lg p-1 bg-white rounded"
+                                        aria-labelledby="navbarDropdown">
+                                        <input type="text" name="search" class="search" placeholder="Tìm kiếm..">
+                                    </div>
+                                </li>
+                                <!-- dropdown cart -->
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#" role="button" id="dropdownCart" data-toggle="dropdown">
+                                        <i class="fas fa-shopping-cart"><span class="badge badge-light">2</span></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-cart px-3 shadow-lg p-1 bg-white rounded"
+                                        aria-labelledby="dropdownCart">
+                                        <div class="row dropdown-cart-header d-flex">
+                                            <div class="p-2">
+                                                <i class="fa fa-shopping-cart cart-icon"></i>
+                                                <span class="badge-cart drc_total_items">2</span>
+                                            </div>
+                                            <div class="ml-auto p-2">
+                                                <span class="lighter-text drc_total_amount">Tổng : </span>
+                                                <span class="main-color-text">45.000 VNĐ</span>
+                                            </div>
+                                        </div>
+                                        <!-- info items -->
+                                        <div class="row dropdown-cart-items mx-1">
+                                            <ul class="w-100">
+                                                <li class="row">
+                                                    <div class="col-2 mr-3">
+                                                        <img src="images/banh-kem-tiramisu-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="item-name">Bông kem tiramisu 1</span>
+                                                        <div>
+                                                            <span class="item-price">45.000đ</span>
+                                                            <span class="item-quantity">Số lượng : 1</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-2 mr-3">
+                                                        <img src="images/banh-bong-lan-trung-muoi.jpg" alt="">
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="item-name">Bông lang trứng muối</span>
+                                                        <div>
+                                                            <span class="item-price">45.000đ</span>
+                                                            <span class="item-quantity">Số lượng : 1</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <a class="btn btn-primary mt-3 visit-cart" href="gio-hang.html"
+                                            role="button">Ghé giỏ
+                                            hàng</a>
+                                        <a class="btn btn-primary mt-3 mb-2 checkout-cart" href="thanhtoan.html" role="button">Thanh
+                                            toán</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- end menu  -->
+
+    <div class="mt-5" style="margin-top: 6rem !important"></div>
+    <!-- wrapper -->
+    <div id="wrapper">
+         
+        <!-- Phan hinh anh va gia san pham -->
+        <div class="container-fluid product-detail-wrapper">
+            <div class="row padding">
+                <div class="col-lg-5 col-md-12 product-detail-left">
+                    <!-- Container for the image gallery -->
+                    <div class="container-image-gallery">
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">1 / 6</div>
+                            <img src="images/banh-bong-lan-trung-muoi.jpg" class="img-fluid">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">2 / 6</div>
+                            <img src="images/banh-kem-bap.jpg" class="img-fluid">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">3 / 6</div>
+                            <img src="images/banh-bong-lan-trung-muoi.jpg" class="img-fluid">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">4 / 6</div>
+                            <img src="images/banh-kem-bap.jpg" class="img-fluid">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">5 / 6</div>
+                            <img src="images/banh-bong-lan-trung-muoi.jpg" class="img-fluid">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext img-magnifier-container">6 / 6</div>
+                            <img src="images/banh-kem-bap.jpg" class="img-fluid">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>
+
+                        <div class="row thumnail-image mx-auto">
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-bong-lan-trung-muoi.jpg" style="width:100%"
+                                    onclick="currentSlide(1)" alt="Bông lan trứng muối 1">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-kem-bap.jpg" style="width:100%"
+                                    onclick="currentSlide(2)" alt="Bông lan trứng muối 2">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-bong-lan-trung-muoi.jpg" style="width:100%"
+                                    onclick="currentSlide(3)" alt="Bông lan trứng muối 3">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-kem-bap.jpg" style="width:100%"
+                                    onclick="currentSlide(4)" alt="Bông lan trứng muối 4">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-bong-lan-trung-muoi.jpg" style="width:100%"
+                                    onclick="currentSlide(5)" alt="Bông lan trứng muối 5">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="images/banh-kem-bap.jpg" style="width:100%"
+                                    onclick="currentSlide(6)" alt="Bông lan trứng muối 6">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-7 col-md-12 product-detail-right pl-5">
+                    <h2>Bánh bông lan trứng muối 001</h2>
+                    <h3 style="color: rgb(160, 156, 156)">Bánh bông lan</h3>
+                    <hr>
+                    <p class="product-info"><b>Mã sản phẩm : </b><span>BK001</span></p>
+                    <p class="product-info"><b>Giá :</b> <span style="color: red">45.000 VNĐ</span></p>
+                    <p class="product-info"><b>Lượt xem :</b> <span>212</span></p>
+                    <p class="product-info"><b>Đánh giá :</b> <span class='raty' data-score='5'></span>
+                    | <b>Tổng số :</b><span>52</span></p>
+                    <p > 
+                        <div class="form-group" >
+                          <p class="product-info" style="border-bottom-style: none;"><b style="float: left;">Thời gian giao hàng: </b></p>
+                          <select class="form-control mt-1" id="sel1" style="width:110px;float: left;margin-left: 20px; height: 30px; padding: 0 0 !important">
+                            <option>8h-11h</option>
+                            <option>13h-17h</option>
+                            <option>18h-20h</option>
+                           
+                        </select>
+                    </div>
+                    </p>
+
+                    <div style="clear: both;"></div>
+                     <p class="product-info" style="margin-top: 22px"></p>
+                    <p><b>Chọn ngày giao hàng:</b><input type="text" id="datepicker"></p>
+                    <p class="product-info" style="margin-top: 22px"></p>
+                    <p class="product-info">
+                        <b>Khắc chữ:</b>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                    </p>
+            <!--<div class="col-lg-8 col-md-6 product-detail-right pl-3" >
+                <div class="form-group" class="product-info">
+                    <p ><b>Khắc chữ: </b></p>
+                  <textarea class="form-control" rows="3" id="comment"></textarea>
+                </div>
+            </div>-->
+                    <br>
+                    <p class="mt-3"><b>Số lượng : </b></p>
+                    <div class="input-group choose-quantity" style="float: left">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-danger btn-number" data-type="minus"
+                                data-field="quant[2]">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" name="quant[2]" class="form-control input-number text-center" value="1"
+                            min="1" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-number" data-type="plus"
+                                data-field="quant[2]">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <button type="button" class="btn btn-warning add-to-cart"><i
+                            class="fas fa-cart-plus pr-3"></i><b>Thêm vào giỏ hàng</b></button>
+                </div>
+            </div>
+        </div>
+        <!-- end  han hinh anh va gia san pham-->
+
+        <!-- Phan tab control gom mo ta san pham va binh luan -->
+        <div class="container-fluid tabs-control ml-0 mt-5">
+            <div class="usual" id="usual1">
+                <ul>
+                    <li><a onclick="openTab(event,'tab1')" title="Mô tả sản phẩm" rel='tab1' href='javascript:void(0)'
+                            class="tab selected"><h4>Mô tả sản
+                                    phẩm</h4> </a></li>
+                    <li><a onclick="openTab(event,'tab2')" title="Bình luận" rel='tab2' href='javascript:void(0)'
+                            class="tab"><h4>Bình luận</h4> </a></li>
+                </ul>
+            </div>
+
+            <div class="usual-content">
+                <div id="tab1" class="tab-content" style="min-height: 150px">
+                    Bánh kem là một phần không thể thiếu và có ý nghĩa đặc biệt quan trọng trong các
+                    bữa tiệc như sinh nhật, cưới hỏi, thôi nôi, mừng thọ. Bên trong là những lớp cốt
+                    bánh bông lan mềm mịn và xốp kết hợp với lớp nhân mứt ngọt thanh, được phủ một
+                    lớp kem lên và trang trí theo sở thích của chủ nhân bữa tiệc.
+                </div>
+                <div id="tab2" class="tab-content" style="display: none">
+                    <!-- comment facebook -->
+                    <div class="comment-product">
+                        <div class="comment-form-container">
+                            <form id="frm-comment">
+                                <div class="input-row">
+                                    <input type="hidden" name="comment_id" id="commentId" />
+                                </div>
+                                <div class="input-row">
+                                    <textarea class="input-field" type="text" name="comment" id="comment"
+                                        placeholder='Nhập bình luận của bạn tại đây'>  </textarea>
+                                </div>
+                                <div>
+                                    <input type="button" class="btn-submit mb-3" id="submitButton"
+                                        value="Gửi bình luận" />
+                                    <div id="comment-message">Thêm bình luận thành công!</div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="output">
+                            <ul class="outer-comment">
+                                <li>
+                                    <div class="comment-row">
+                                        <div class="comment-info"><span class="commet-row-label">from</span> <span
+                                                class="posted-by">Ngọc Trinh </span> <span
+                                                class="commet-row-label">at</span> <span class="posted-at">2019-06-12
+                                                11:48:58</span></div>
+                                        <div class="comment-text"> Bánh ngon quá! Mình mua về cả nhà ăn hết luôn. Sẽ ủng
+                                            hộ tiệm dài dài !!!!!! </div>
+                                        <div><a class="btn-reply" onclick="postReply(61)">Reply</a></div>
+                                        <form id="form_reply_61" style="display:none">
+                                            <div class="input-row"><textarea class="input-field" type="text"
+                                                    name="comment" id="commentReply"
+                                                    placeholder="Nhập bình luận của bạn tại đây"></textarea></div>
+                                            <div class="input-row"><input type="button" class="btn-submit"
+                                                    id="submitButtonReply" value="Gửi bình luận"></div>
+                                        </form>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="comment-row">
+                                                <div class="comment-info"><span class="commet-row-label">from</span>
+                                                    <span class="posted-by">Nguyễn Nhựt Tiến </span> <span
+                                                        class="commet-row-label">at</span> <span
+                                                        class="posted-at">2019-06-12 12:49:22</span></div>
+                                                <div class="comment-text">Cảm ơn bạn</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end phan tab control gom mo ta san pham va binh luan -->
+
+        <!-- San pham lien quan -->
+        <div class="container-fluid related-product">            
+            <div class="row mt-5">
+                <h3 class="list-product-title mb-3 ml-3 bg-danger text-white">
+                    <i class="fas fa-pizza-slice mr-3"></i>Sản phẩm liên quan</h3>
+            </div>
+            <div class="product-group mt-3">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card card-product mb-3">
+                            <div class="card-image">
+                                <a href="" class="mask">
+                                    <img src="images/banh-bong-lan-trung-muoi.jpg" class="card-img-top" alt="...">
+                                </a>
+                            </div>
+                            <svg height="0">
+                                <!-- THE mask -->
+                                <mask id="mask-firefox">
+                                    <image width="160" height="160" xlink:href="images/banh-bong-lan-trung-muoi.jpg"
+                                        filter="url(#filter)">
+                                </mask>
+
+                                <!-- the filter to make the image white -->
+                                <filter id="filter">
+                                    <feFlood flood-color="white">
+                                        <feComposite in2="SourceAlpha" operator="in">
+                                </filter>
+                            </svg>
+                            <div class="card-body">
+                                <h5 class="card-title">Bông lan trứng muối</h5>
+                                <div class="card-text product-price">
+                                    <span class="original-price">100.000 VNĐ</span>
+                                </div>
+                                <div class='raty' data-score='5'></div>
+                                <a href="" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline-info btn-view-detail">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card card-product mb-3">
+                            <div class="card-image">
+                                <a href="" class="mask">
+                                    <img src="images/banh-bong-lan-trung-muoi.jpg" class="card-img-top" alt="...">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <div class="card-text product-price">
+                                    <span class="original-price">100.000 VNĐ</span>
+                                </div>
+                                <div class='raty' data-score='5'></div>
+                                <a href="" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline-info btn-view-detail">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card card-product mb-3">
+                            <div class="card-image">
+                                <a href="" class="mask">
+                                    <img src="images/banh-bong-lan-trung-muoi.jpg" class="card-img-top" alt="...">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <div class="card-text product-price">
+                                    <span class="original-price">100.000 VNĐ</span>
+                                </div>
+                                <div class='raty' data-score='5'></div>
+                                <a href="" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline-info btn-view-detail">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card card-product mb-3">
+                            <div class="card-image">
+                                <a href="" class="mask">
+                                    <img src="images/banh-bong-lan-trung-muoi.jpg" class="card-img-top" alt="...">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <div class="card-text product-price">
+                                    <span class="original-price">100.000 VNĐ</span>
+                                </div>
+                                <div class='raty' data-score='5'></div>
+                                <a href="" class="btn btn-info btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline-info btn-view-detail">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end san pham lien quan -->
+    </div>
+    <!-- end wrapper -->
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4 mt-2">
+                    <img src="images/sweet-cake-logo-.jpg" width="100" height="70" alt="">
+                    <hr class="light">
+                    <p>0123 456 789</p>
+                    <p>sweetcake@gmail.com</p>
+                    <p>QL 13, P.Hiệp Bình Chánh, Q.Thủ Đức, TP.HCM</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Giờ làm việc</h5>
+                    <hr class="light">
+                    <p>Thứ hai - Thứ sáu : 8h - 21h</p>
+                    <p>Thứ bảy - Chủ nhật : 8h - 22h</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Dịch vụ</h5>
+                    <hr class="light">
+                    <p>Đặt bánh sinh nhật</p>
+                    <p>Giao hàng tận nơi </p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; Sweet cake bakery</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer  -->
+
+
+    <!-- Login -->
+    <div id="modal-login" class="modal-login">
+        <div id="login-content" class="container-fluid login animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Đăng nhập</h1>
+                <span onclick="closeModalLogin()" class="close-login" title="Đóng login">&times;</span>
+                <div class="col-md-12 col-lg-6 login-with-social">
+                    <a href="#" class="btn btn-primary btn-md fb mt-5" role="button" aria-pressed="true"><i
+                            class="fab fa-facebook-f"></i>
+                        Đăng nhập với Facebook
+                    </a>
+                    <a href="#" class="btn btn-primary btn-md twitter" role="button" aria-pressed="true"><i
+                            class="fab fa-twitter"></i>
+                        Đăng nhập với Twitter
+                    </a>
+                    <a href="#" class="btn btn-primary btn-md google" role="button" aria-pressed="true"><i
+                            class="fab fa-google"></i>
+                        Đăng nhập với Google+
+                    </a>
+                    <div class="row new-account mt-3">
+                        <span>Chưa có tài khoản?</span> <a onclick="openSignupModal()">Đăng ký ngay</a>
+                    </div>
+                    <div class="row forgot-password">
+                        <a onclick="openFogotPasswordModal()">Quên mật khẩu?</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="form-item d-flex flex-row">
+                                <i class="fa fa-user fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email"
+                                    required>
+                            </div>
+                            <p id="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật khẩu</label>
+                            <div class="form-item d-flex flex-row">
+                                <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                <input type="password" class="form-control p-2" id="password"
+                                    placeholder="Nhập mật khẩu" required>
+                            </div>
+                            <p id="passwordError"></p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label for="rememberMe" class="form-check-label">Nhớ mật khẩu</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block my-3">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end login -->
+
+    <!-- Forgot Password -->
+    <div id="modal-forgotPassword" class="modal-forgotPassword">
+        <div id="forgotPassword-content" class="container-fluid forgotPassword animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Quên mật khẩu</h1>
+                <span onclick="closeFogotPasswordModal()" class="close-forgotPassword"
+                    title="Đóng forgot password">&times;</span>
+                <form action="" style="width: 100%">
+                    <div class="form-group">
+                        <label for="email">Nhập Email đăng nhập của bạn, chúng tôi sẽ gửi mật khẩu mới cho
+                            bạn:</label>
+                        <div class="form-item d-flex flex-row">
+                            <i class="fa fa-envelope-square fa-lg fa-fw p-2" aria-hidden="true"></i>
+                            <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email">
+                        </div>
+                        <p id="emailError"></p>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block my-3 d-block mx-auto">Lấy lại mật
+                        khẩu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Forgot Password -->
+
+    <!-- SignUp -->
+    <div id="modal-signup" class="modal-signup">
+        <div id="signup-content" class="container-fluid signup animate d-flex justify-content-center">
+            <div class="row row-container">
+                <h1 class="d-block col-12 text-center">Đăng ký</h1>
+                <span onclick="closeModalSignup()" class="close-signup" title="Đóng sigup">&times;</span>
+                <form action="" style="width: 100%">
+                    <div class="form-row row justify-content-between">
+                        <div class="col-lg-5 col-md-10">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-envelope-square fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="email" class="form-control p-2" id="email" placeholder="Nhập Email">
+                                </div>
+                                <p id="emailError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật khẩu</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="password" class="form-control p-2" id="password"
+                                        placeholder="Nhập mật khẩu">
+                                </div>
+                                <p id="passwordError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="repassword">Nhập lại mật khẩu</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-lock fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="password" class="form-control p-2" id="repassword"
+                                        placeholder="Nhập lại mật khẩu">
+                                </div>
+                                <p id="repasswordError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-user fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="name" placeholder="Nhập họ và tên">
+                                </div>
+                                <p id="nameError"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-10">
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-phone fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="phone"
+                                        placeholder="Nhập số điện thoại">
+                                </div>
+                                <p id="phoneError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Địa chỉ</label>
+                                <div class="form-item d-flex flex-row">
+                                    <i class="fa fa-map-marker fa-lg fa-fw p-2" aria-hidden="true"></i>
+                                    <input type="text" class="form-control p-2" id="address" placeholder="Nhập địa chỉ">
+                                </div>
+                                <p id="addressError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Thành phố/Tỉnh</label>
+                                <select class="custom-select" name="city">
+                                    <option selected>-----Chọn Thành phố/Tỉnh-----</option>
+                                    <option value="1">TP.Hồ Chí Minh</option>
+                                    <option value="2">Hà Nội</option>
+                                    <option value="3">Bình Dương</option>
+                                </select>
+                                <p id="cityError"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="district">Quận/Huyện</label>
+                                <select class="custom-select" name="district">
+                                    <option selected>-----Chọn Quận/Huyện-----</option>
+                                    <option value="1">Quận 1</option>
+                                    <option value="2">Quận 2</option>
+                                    <option value="3">Quận Bình Thạnh</option>
+                                </select>
+                                <p id="districtError"></p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success d-block mx-auto btn-block my-3">Đăng
+                            ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end SignUp -->
+
+
+    
+
+
+    <script src="js/show-on-scroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/image-gallery.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/magnifier-image.js"></script>
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({dateFormat : 'dd/mm/yy'});
+    } );
+    </script>
+</body>
+
+</html>
