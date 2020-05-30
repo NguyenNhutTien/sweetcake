@@ -166,3 +166,16 @@ $('.list-group a').click(function (event) {
 
 
 //-------
+
+
+//---------------- Show dropdown-cart-----------------
+$(document).ready(function(){
+    $('#dropdownCart').on('click',function(){
+        $('.dropdown-cart').fadeIn();
+    });
+    window.onclick = function (event) {
+        if (event.target != $('.dropdown-cart')) {
+            $('.dropdown-cart').css('display','none');
+        }
+    };
+});
